@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Text } from 'native-base';
 import { connect } from 'react-redux';
 import { store } from '../../core/_helpers';
 import { StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { userActions } from '../../core/_actions';
 
 const styles = StyleSheet.create({
 
 })
 
 function Main(props) {
+
 	return <Container>
 		<Header>
 			{

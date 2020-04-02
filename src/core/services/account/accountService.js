@@ -1,6 +1,6 @@
-import { myStorage } from '../../shared/utils/async-storge';
+import { myStorage } from '../../../shared/utils/async-storge';
 
-const axios = require('axios').default;
+const axios = require('../client');
 
 export const accountService = {
 	login,
@@ -10,6 +10,7 @@ export const accountService = {
 	setAuthInterceptor
 }
 function login(credential) {
+	console.log(axios.baseUrl)
 	return axios.post(`/api/${+credential.roleTypeIndex === 1 ? 'employee' : 'employer'}/login`, {
 		username: credential.username,
 		password: credential.password
