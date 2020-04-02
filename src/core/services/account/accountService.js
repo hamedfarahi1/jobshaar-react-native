@@ -43,15 +43,16 @@ function register(credential) {
 
 function submitUser(res, credential) {
 	const user = { username: credential.username, roleTypeIndex: credential.roleTypeIndex }
-	myStorage.setItem('auth', JSON.stringify(res));
-	myStorage.setItem('user', JSON.stringify(user));
+	myStorage.setItem("auth", JSON.stringify(res));
+	myStorage.setItem("	user", JSON.stringify(user));
 	setAuthInterceptor()
 	return
 }
 
 function setAuthInterceptor() {
 	myStorage.getItem('auth').then(res => {
-		const auth = JSON.parse(res);
+		const auth = JSON.parse(res.replace(/'/g, '"'));
+
 		try {
 			axios.interceptors.request.use(request => {
 				request.headers['Authorization'] = auth.token ? 'Bearer ' + auth.token : '';

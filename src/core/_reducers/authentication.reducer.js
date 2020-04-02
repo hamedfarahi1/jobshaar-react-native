@@ -3,7 +3,7 @@ import { myStorage } from '../../shared/utils/async-storge';
 
 let user = '';
 myStorage.getItem('user').then(res => {
-	user = JSON.parse(res);
+	user = JSON.parse(res.replace(/'/g, '"'));
 })
 const initialState = user ? { loggedIn: true, user } : {};
 
