@@ -8,8 +8,7 @@ import { LocalizeProvider } from 'react-localize-redux'
 import { Provider } from 'react-redux';
 import { store } from './src/core/_helpers';
 import { Main } from './src/entity/main/Main';
-import 'react-native-gesture-handler';
-import { NavigationContainer } from '@react-navigation/native';
+
 import { interceptorsSetter } from './src/core/interceptors/interceptorsSetter';
 
 
@@ -22,9 +21,7 @@ const App = () => {
 		<>
 			<LocalizeProvider>
 				<Provider store={store}>
-					<NavigationContainer>
-						<Main />
-					</NavigationContainer>
+					<Main />
 				</Provider>
 			</LocalizeProvider>
 		</>

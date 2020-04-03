@@ -1,10 +1,13 @@
 import React, { useEffect } from 'react';
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Text } from 'native-base';
 import { connect } from 'react-redux';
-import { store } from '../../core/_helpers';
 import { StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { userActions } from '../../core/_actions';
+import { Home } from '../home/Home';
+import { Account } from '../account/Account';
+import { Router } from 'react-native-router-flux';
+import { Routes } from './Routes';
+
 
 const styles = StyleSheet.create({
 
@@ -34,13 +37,9 @@ function Main(props) {
 				</Button>
 			</Right>
 		</Header>
-		<Content>
-			<Text>
-				This is Content Section
-          </Text>
-		</Content>
+		<Routes />
 		{
-			props.loggedIn &&
+			true &&
 			<Footer>
 				<FooterTab>
 					<Button full>
@@ -49,6 +48,7 @@ function Main(props) {
 				</FooterTab>
 			</Footer>
 		}
+
 	</Container>
 }
 function mapState(state) {
