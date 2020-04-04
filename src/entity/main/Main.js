@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
 function Main(props) {
 
 	return <Container>
-		<Header>
+		{props.loggedIn && <Header>
 			{
 				// change that later
 				false ?
@@ -36,19 +36,8 @@ function Main(props) {
 					<Icon color="#fff" name='bars' size={20} />
 				</Button>
 			</Right>
-		</Header>
-		<Routes />
-		{
-			true &&
-			<Footer>
-				<FooterTab>
-					<Button full>
-						<Text>University Jon Community Service</Text>
-					</Button>
-				</FooterTab>
-			</Footer>
-		}
-
+		</Header>}
+		<Routes loggedIn={props.loggedIn} />
 	</Container>
 }
 function mapState(state) {
